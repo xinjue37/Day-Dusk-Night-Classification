@@ -2,6 +2,7 @@
 Author: Ng Zheng Jue, Ong Ming Jie, Ng Rui Qi, Tan Hong Guan
 
 * This is a project developed in undergraduate Year 2 - Semester 2
+* This is a Day Dusk Night Classifier implemented using CNN (Pytorch) with autoencoder & ensemble learning.
 * This repository consists of
   - Database which consists the image of Day, Dusk, Night captured by ourself
   - Difference jupyter notebook file with difference settings in preprocessing the image
