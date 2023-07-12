@@ -3,9 +3,8 @@ Author: Ng Zheng Jue, Ong Ming Jie, Ng Rui Qi, Tan Hong Guan
 
 * This is a project developed in undergraduate Year 2 - Semester 2
 * This repository consists of
-  - Database which consist the image of Day, Dusk, Night captured by ourself
-  - Difference classification model (.pt) file with difference settings
-  - Difference jupyter notebook file with difference settings
+  - Database which consists the image of Day, Dusk, Night captured by ourself
+  - Difference jupyter notebook file with difference settings in preprocessing the image
 
 # Motivation of building this classifier
 In recent years, researchers have found a surge of interest in day/night monitoring systems. One of the reasons is that it can help in computer-vision-based traffic monitoring systems. Recently, the accuracy of computer-vision-based traffic monitoring systems in segmenting the vehicles has been extremely low. This is due to the lighting conditions, which have an impact on the model's performance. One of the practical solutions is to switch the algorithms for daytime when the illumination is high and for night-time when the illumination is low. Therefore, by implementing a day/night monitoring system, the government can apply different algorithms for different illumination conditions for the traffic system to improve traffic flow.
