@@ -1,5 +1,5 @@
 # Day Dusk Night Classification
-Author: [Ng Zheng Jue](https://github.com/xinjue37), [Ong Ming Jie](https://github.com/ethanong98), [Ng Rui Qi](https://github.com/Ruiqi2002), Tan Hong Guan
+Author: [Ng Zheng Jue](https://github.com/xinjue37), [Ong Ming Jie](https://github.com/ethanong98), [Ng Rui Qi](https://github.com/Ruiqi2002), [Tan Hong Guan](https://github.com/tanhg1116)
 
 * This is a project developed in undergraduate Year 2 - Semester 2
 * This is a Day Dusk Night Classifier implemented using CNN (Pytorch) with autoencoder & ensemble learning.
