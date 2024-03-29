@@ -5,7 +5,7 @@ Author: [Ng Zheng Jue](https://github.com/xinjue37), [Ong Ming Jie](https://gith
 * This is a Day Dusk Night Classifier implemented using **CNN (Pytorch) with CNN autoencoder for feature extration**. In the mean while, we evaluate the effect of applying Gaussian Low Pass Filter and effect of convert RGB to HSV on the performance of CNN model. 
 * The major 
 * This repository consists of
-  - Database which consists the image of Day, Dusk, Night captured by ourself
+  - Database which consists the image of Day, Dusk, Night captured. File naming format: “𝑐𝑙𝑎𝑠𝑠 _𝑖 .jpg”, where 𝑐𝑙𝑎𝑠𝑠 ∈ {𝐷𝑎𝑦,  𝐷𝑢𝑠𝑘,  𝑁𝑖𝑔ℎ𝑡} , 𝑖 ∈ {0,1,2, … }---(1)
   - 4 difference jupyter notebook file with difference settings in preprocessing the image
 
 <div align="center">
