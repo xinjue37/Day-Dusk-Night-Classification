@@ -3,9 +3,14 @@ Author: [Ng Zheng Jue](https://github.com/xinjue37), [Ong Ming Jie](https://gith
 
 * This is a project developed in undergraduate Year 2 - Semester 2
 * This is a Day Dusk Night Classifier implemented using **CNN (Pytorch) with CNN autoencoder for feature extration**. In the mean while, we evaluate the effect of applying Gaussian Low Pass Filter and effect of convert RGB to HSV on the performance of CNN model. 
-* The major 
+* The major step of building the CNN Classifier involve:
+  * Data Collection - Label each image, remove irrelevant image, and rename each iamge
+  * Data Preprocessing - Extract labels from name of images, Resizing all images to 80×80, Color processing: Converting RGB to HSV (Optional), Noise reduction using Gaussian Low Pass Filter (Optional), Splitting the dataset into 70% training and 30% testing, Perform Data augmentation on training dataset, Move the data into DataLoader
+  * Build and train CNN autoencoder for Feature extraction
+  * Build and train CNN classification model.
+  * Evaluate the CNN classification model on the testing dataset
 * This repository consists of
-  - Database which consists the image of Day, Dusk, Night captured. File naming format: “𝑐𝑙𝑎𝑠𝑠 _𝑖 .jpg”, where 𝑐𝑙𝑎𝑠𝑠 ∈ {𝐷𝑎𝑦,  𝐷𝑢𝑠𝑘,  𝑁𝑖𝑔ℎ𝑡} , 𝑖 ∈ {0,1,2, … }---(1)
+  - Database which consists the image of Day, Dusk, Night captured. File naming format: “𝑐𝑙𝑎𝑠𝑠 _𝑖 .jpg”, where 𝑐𝑙𝑎𝑠𝑠 ∈ {𝐷𝑎𝑦,  𝐷𝑢𝑠𝑘,  𝑁𝑖𝑔ℎ𝑡} , 𝑖 ∈ {0,1,2, … }
   - 4 difference jupyter notebook file with difference settings in preprocessing the image
 
 <div align="center">
@@ -19,7 +24,38 @@ Author: [Ng Zheng Jue](https://github.com/xinjue37), [Ong Ming Jie](https://gith
 
 </div>
 
-# Motivation of building this classifier
-In recent years, researchers have found a surge of interest in day/night monitoring systems. One of the reasons is that it can help in computer-vision-based traffic monitoring systems. Recently, the accuracy of computer-vision-based traffic monitoring systems in segmenting the vehicles has been extremely low. This is due to the lighting conditions, which have an impact on the model's performance. One of the practical solutions is to switch the algorithms for daytime when the illumination is high and for night-time when the illumination is low. Therefore, by implementing a day/night monitoring system, the government can apply different algorithms for different illumination conditions for the traffic system to improve traffic flow.
+## Overall Results 
+### Interpretation of Result for CNN Autoencoder
+* The loss of the CNN autoencoder is as below:
+<p align="center">
+    <img src="Image/Result_CNN_Autoencoder.png" width="500">
+</p>
+As shown, the good model usually does not use weight decay (set lambda =0). And among
+them, the best model usually is at index 2 with learning rate = 0.001 (this may vary for different
+runs due to the Batch Normalization layer).29
+Besides that, based on the table above, by applying Gaussian low pass filter, the loss between
+real image and reconstruction image is smaller (from A->B and C->D). This may be due to
+applying Gaussian low pass filter remove some of the noise of the image and smooth out the image
+pixel, which help in reconstruction of the image in Convolution Transpose layer.
+Furthermore, based on the table above, by convert RGB to HSV, it also helps to increase the
+result (from A->C and from B->D). This may be due to HSV is the color model that closer to
+human vison perception
+* At last, the model with the lowest validation loss will be selected to further classification in the
+classification model below
 
-However, the day/night detector currently has several flaws, namely that models do not consider the presence of dusk. By including dusk as one of the classes, we can differentiate between the two examples above and produce a more efficient and time-saving system. Take the implementation of traffic flow as an example. If the system can identify that it is dusk, it can switch to an algorithm that can decrease the congestion level during rush hour. Thus, we has initialised this project to construct a model for this day/night detector, which also includes the class "dusk."
+### Interpretation of Result for Classification Model
+* The accuracy of the top 10 best classification models based on validation accuracy is as below:
+* <p align="center">
+    <img src="Image/Result_CNN_Classifer.png" width="500">
+</p>
+Based on the result, by convert RGB to HSV, it significantly reduces the accuracy (from
+A->C and B->D). This may be due to the difference range of RGB and HSV. For RGB, all channel have range from 0 to 255 while for HSV, H have range from 0 to 150 while S & V have range from 0 to 255.
+Since HSV representation resulting a lower range in H, it make the model harder to learn the features of an image. This concept may be explained similarly as using tanh activation function and sigmoid activation function. Generally, tanh activation function is better as it has a higher range.
+
+Besides that, based on the results, by applying Gaussian low pass filter, it decreases the train
+and test accuracy (from A->B) – (the case without converts RGB to HSV), decreases the train and31
+validation accuracy (from C->D) but increases the test accuracy (from C->D). In theory, suitable
+size of the Gaussian low pass filter with suitable 𝜎2 can remove the noise of the data. Conversely,
+if the size is too big or 𝜎2 is too large, it can remove some of the important features in the image.
+In our case, the size of the filter or 𝜎2 might be too large, causing it to remove some of the
+important features.
