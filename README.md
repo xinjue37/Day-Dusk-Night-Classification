@@ -2,7 +2,7 @@
 Author: [Ng Zheng Jue](https://github.com/xinjue37), [Ong Ming Jie](https://github.com/ethanong98), [Ng Rui Qi](https://github.com/Ruiqi2002), [Tan Hong Guan](https://github.com/tanhg1116)
 
 * This is a project developed in undergraduate Year 2 - Semester 2
-* This is a Day Dusk Night Classifier implemented using **CNN (Pytorch) with CNN autoencoder for feature extration**. In the mean while, we evaluate the effect of applying Gaussian Low Pass Filter and effect of convert RGB to HSV on the performance of CNN model. 
+* This is a Day Dusk Night Classifier implemented using **CNN (Pytorch) with CNN autoencoder for feature extration**. In the mean while, the effect of applying Gaussian Low Pass Filter and effect of convert RGB to HSV on the performance of CNN model are evaluated through hyperparameter tuning. 
 * The major step of building the CNN Classifier involve:
   * Data Collection - Label each image, remove irrelevant image, and rename each iamge
   * Data Preprocessing - Extract labels from name of images, Resizing all images to 80×80, Color processing: Converting RGB to HSV (Optional), Noise reduction using Gaussian Low Pass Filter (Optional), Splitting the dataset into 70% training and 30% testing, Perform Data augmentation on training dataset, Move the data into DataLoader
