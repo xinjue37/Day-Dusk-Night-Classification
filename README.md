@@ -11,10 +11,12 @@ Author: [Ng Zheng Jue](https://github.com/xinjue37), [Ong Ming Jie](https://gith
 <div align="center">
 
 |File|Apply Gaussian Low Pass Filter|Convert RGB to HSV|
+|:-:|:-:|:-:|
 |1|✖|✖|
 |2|✔|✖|
 |3|✖|✔|
 |4|✔|✔|
+
 </div>
 
 # Motivation of building this classifier
