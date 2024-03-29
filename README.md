@@ -45,7 +45,7 @@ classification model below
 
 ### Interpretation of Result for Classification Model
 * The accuracy of the top 10 best classification models based on validation accuracy is as below:
-* <p align="center">
+<p align="center">
     <img src="Image/Result_CNN_Classifer.png" width="500">
 </p>
 Based on the result, by convert RGB to HSV, it significantly reduces the accuracy (from
@@ -59,3 +59,13 @@ size of the Gaussian low pass filter with suitable 𝜎2 can remove the noise of
 if the size is too big or 𝜎2 is too large, it can remove some of the important features in the image.
 In our case, the size of the filter or 𝜎2 might be too large, causing it to remove some of the
 important features.
+
+## Conclusion 
+In short, the model without applied Gaussian filter (B) and without convert RGB to HSV has
+the highest accuracy on the train, test, and validation datasets. This shows the amazing power of a
+Neural Network in auto-extract feature from the original input data, which is better than human
+designed features. We have successfully achieved our aim, which is to produce a model that has a
+high accuracy (average 97% accuracy on the dataset) with just about 20,000 weights in the
+classification model. However, because the dataset may contain bias, our models are at risk of
+overfitting. To solve this problem, one of the best solution increase the size of the quality datasets,
+feed them into the model, and train it again
