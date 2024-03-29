@@ -2,10 +2,20 @@
 Author: [Ng Zheng Jue](https://github.com/xinjue37), [Ong Ming Jie](https://github.com/ethanong98), [Ng Rui Qi](https://github.com/Ruiqi2002), [Tan Hong Guan](https://github.com/tanhg1116)
 
 * This is a project developed in undergraduate Year 2 - Semester 2
-* This is a Day Dusk Night Classifier implemented using CNN (Pytorch) with autoencoder & ensemble learning.
+* This is a Day Dusk Night Classifier implemented using **CNN (Pytorch) with CNN autoencoder for feature extration**. In the mean while, we evaluate the effect of applying Gaussian Low Pass Filter and effect of convert RGB to HSV on the performance of CNN model. 
+* The major 
 * This repository consists of
   - Database which consists the image of Day, Dusk, Night captured by ourself
-  - Difference jupyter notebook file with difference settings in preprocessing the image
+  - 4 difference jupyter notebook file with difference settings in preprocessing the image
+
+<div align="center">
+
+|File|Apply Gaussian Low Pass Filter|Convert RGB to HSV|
+|1|✖|✖|
+|2|✔|✖|
+|3|✖|✔|
+|4|✔|✔|
+</div>
 
 # Motivation of building this classifier
 In recent years, researchers have found a surge of interest in day/night monitoring systems. One of the reasons is that it can help in computer-vision-based traffic monitoring systems. Recently, the accuracy of computer-vision-based traffic monitoring systems in segmenting the vehicles has been extremely low. This is due to the lighting conditions, which have an impact on the model's performance. One of the practical solutions is to switch the algorithms for daytime when the illumination is high and for night-time when the illumination is low. Therefore, by implementing a day/night monitoring system, the government can apply different algorithms for different illumination conditions for the traffic system to improve traffic flow.
