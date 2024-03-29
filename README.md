@@ -30,11 +30,11 @@ Author: [Ng Zheng Jue](https://github.com/xinjue37), [Ong Ming Jie](https://gith
 <p align="center">
     <img src="Image/Result_CNN_Autoencoder.png" width="500">
 </p>
-&emsp; As shown, the good model usually does not use weight decay (set lambda =0). And among
+&emsp;&emsp; As shown, the good model usually does not use weight decay (set lambda =0). And among
 them, the best model usually is at index 2 with learning rate = 0.001 (this may vary for different
 runs due to the Batch Normalization layer).29
 <br>
-&emsp; Besides that, based on the table above, by applying Gaussian low pass filter, the loss between
+&emsp;&emsp; Besides that, based on the table above, by applying Gaussian low pass filter, the loss between
 real image and reconstruction image is smaller (from A->B and C->D). This may be due to
 applying Gaussian low pass filter remove some of the noise of the image and smooth out the image
 pixel, which help in reconstruction of the image in Convolution Transpose layer.
@@ -49,12 +49,12 @@ classification model below
 <p align="center">
     <img src="Image/Result_CNN_Classifer.png" width="500">
 </p>
-&emsp; Based on the result, by convert RGB to HSV, it significantly reduces the accuracy (from
+&emsp;&emsp; Based on the result, by convert RGB to HSV, it significantly reduces the accuracy (from
 A->C and B->D). This may be due to the difference range of RGB and HSV. For RGB, all channel have range from 0 to 255 while for HSV, H have range from 0 to 150 while S & V have range from 0 to 255.
 Since HSV representation resulting a lower range in H, it make the model harder to learn the features of an image. This concept may be explained similarly as using tanh activation function and sigmoid activation function. Generally, tanh activation function is better as it has a higher range.
 
 <br>
-&emsp;Besides that, based on the results, by applying Gaussian low pass filter, it decreases the train
+&emsp;&emsp;Besides that, based on the results, by applying Gaussian low pass filter, it decreases the train
 and test accuracy (from A->B) – (the case without converts RGB to HSV), decreases the train and31
 validation accuracy (from C->D) but increases the test accuracy (from C->D). In theory, suitable
 size of the Gaussian low pass filter with suitable 𝜎2 can remove the noise of the data. Conversely,
@@ -63,7 +63,7 @@ In our case, the size of the filter or 𝜎2 might be too large, causing it to r
 important features.
 
 ## Conclusion 
-In short, the model without applied Gaussian filter (B) and without convert RGB to HSV has
+&emsp;&emsp;In short, the model without applied Gaussian filter (B) and without convert RGB to HSV has
 the highest accuracy on the train, test, and validation datasets. This shows the amazing power of a
 Neural Network in auto-extract feature from the original input data, which is better than human
 designed features. We have successfully achieved our aim, which is to produce a model that has a
